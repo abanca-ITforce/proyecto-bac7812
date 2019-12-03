@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ExplorerService } from '../explorer.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  countries$: Observable<any[]>;
 
-  constructor() { }
+  constructor(private explorerService: ExplorerService) {
+  }
 
   ngOnInit() {
+    this.countries$ = this.explorerService.getCountries$();
   }
 
 }

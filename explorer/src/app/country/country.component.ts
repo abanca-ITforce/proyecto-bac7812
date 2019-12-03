@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
+import { ActivatedRoute } from "@angular/router";
+import { ExplorerService } from '../explorer.service';
 
 @Component({
-  selector: 'app-country',
-  templateUrl: './country.component.html',
-  styleUrls: ['./country.component.css']
+  selector: "app-country",
+  templateUrl: "./country.component.html",
+  styleUrls: ["./country.component.css"]
 })
 export class CountryComponent implements OnInit {
+  country$: Observable<any>;
 
-  constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private explorerService: ExplorerService
+  ) {}
 
   ngOnInit() {
+    const countryId = this.activatedRoute.snapshot.params.countryId;
+    this.country$ = this.explorerService.getCountryId$(countryId);
   }
-
 }
