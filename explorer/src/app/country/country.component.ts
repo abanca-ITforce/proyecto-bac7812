@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { ActivatedRoute } from "@angular/router";
-import { ExplorerService } from '../explorer.service';
+import { ExplorerService } from "../explorer.service";
 
 @Component({
   selector: "app-country",

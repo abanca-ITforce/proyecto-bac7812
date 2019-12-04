@@ -1,1 +1,6 @@
-<p>search works!</p>
+<app-filters-form [incomeLevels]="incomeLevels$ | async" (post)="onPost($event)"></app-filters-form>
+<app-countries-list
+  *ngIf="countries$ | async as countries"
+  [countries]="countries"
+>
+</app-countries-list>

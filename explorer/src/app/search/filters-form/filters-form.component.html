@@ -1,0 +1,46 @@
+<form [formGroup]="filtersForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Filters</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+          <div class="col">
+              <mat-form-field class="full-width">
+                <mat-select placeholder="Income levels" formControlName="incomeLevel">
+                  <mat-option *ngFor="let incomeLevel of incomeLevels" [value]="incomeLevel.id">
+                    {{ incomeLevel.value }}
+                  </mat-option>
+                </mat-select>
+                <!--<mat-error *ngIf="filtersForm.controls['incomeLevel'].hasError('required')">
+                  Income level is <strong>required</strong>
+                </mat-error>-->
+              </mat-form-field>
+            </div>
+        <div class="col">
+          <mat-radio-group formControlName="typeDebt">
+            <mat-radio-button value="free">Free Shipping</mat-radio-button>
+          </mat-radio-group>
+          <!--<mat-error *ngIf="filtersForm.controls['typeDebt'].hasError('required')">
+            Type of debt regions is <strong>required</strong>
+          </mat-error>-->
+        </div>
+        <div class="col">
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Geographic regions" formControlName="geographicRegions">
+                <mat-option>
+
+                </mat-option>
+              </mat-select>
+              <!--<mat-error *ngIf="filtersForm.controls['geographicRegions'].hasError('required')">
+                Geographic regions is <strong>required</strong>
+              </mat-error>-->
+            </mat-form-field>
+          </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Search</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
