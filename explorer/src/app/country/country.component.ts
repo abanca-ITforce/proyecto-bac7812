@@ -9,7 +9,7 @@ import { ExplorerService } from '../explorer.service';
   styleUrls: ["./country.component.css"]
 })
 export class CountryComponent implements OnInit {
-  country$: Observable<any>;
+  country$: Observable<any[]>;
 
   constructor(
     private activatedRoute: ActivatedRoute,

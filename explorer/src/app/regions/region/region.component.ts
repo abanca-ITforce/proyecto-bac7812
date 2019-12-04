@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class RegionComponent implements OnInit {
   region$: Observable<any>;
+  countries$: Observable<any[]>;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -18,7 +19,8 @@ export class RegionComponent implements OnInit {
 
   ngOnInit() {
     const regionCode = this.activatedRoute.snapshot.params.regionCode;
-    this.region$ = this.explorerService.getRegionsCode$(regionCode);
+    this.region$ = this.explorerService.getRegionCode$(regionCode);
+    this.countries$ = this.explorerService.getCountriesRegionCode$(regionCode);
   }
 
 }
