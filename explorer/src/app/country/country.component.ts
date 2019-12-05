@@ -10,6 +10,7 @@ import { ExplorerService } from "../explorer.service";
 })
 export class CountryComponent implements OnInit {
   country$: Observable<any[]>;
+  indicator$: Observable<any[]>;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -19,5 +20,6 @@ export class CountryComponent implements OnInit {
   ngOnInit() {
     const countryId = this.activatedRoute.snapshot.params.countryId;
     this.country$ = this.explorerService.getCountryId$(countryId);
+    this.indicator$ = this.explorerService.getCountryIndicator$(countryId);
   }
 }
