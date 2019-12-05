@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  onPost(filters) {
+  onFilter(filters) {
     this.countries$ = this.explorerService.getSearch$(filters.incomeLevel, filters.lendingType, filters.geographicRegions);
   }
 

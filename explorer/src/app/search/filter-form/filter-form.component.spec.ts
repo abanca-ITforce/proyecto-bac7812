@@ -7,15 +7,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 
-import { FiltersFormComponent } from './filters-form.component';
+import { FilterFormComponent } from './filter-form.component';
 
-describe('FiltersFormComponent', () => {
-  let component: FiltersFormComponent;
-  let fixture: ComponentFixture<FiltersFormComponent>;
+describe('FilterFormComponent', () => {
+  let component: FilterFormComponent;
+  let fixture: ComponentFixture<FilterFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FiltersFormComponent ],
+      declarations: [ FilterFormComponent ],
       imports: [
         NoopAnimationsModule,
         ReactiveFormsModule,
@@ -29,7 +29,7 @@ describe('FiltersFormComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FiltersFormComponent);
+    fixture = TestBed.createComponent(FilterFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

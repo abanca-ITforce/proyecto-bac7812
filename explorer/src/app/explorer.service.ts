@@ -60,8 +60,19 @@ export class ExplorerService {
   }
 
   getSearch$(incomeLevelId, lendingTypeId, regionCode) {
-    const url = this.country + "?incomeLevel=" + incomeLevelId +
-    "&lendingType=" + lendingTypeId + "&region=" + regionCode + "&" + this.format;
+    // const url = this.country + "?incomeLevel=" + incomeLevelId +
+    // "&lendingType=" + lendingTypeId + "&region=" + regionCode + "&" + this.format;
+    // console.log(url);
+    let url = this.country + "?" + this.format;
+    if (incomeLevelId) {
+      url += "&incomeLevel=" + incomeLevelId;
+    }
+    if (lendingTypeId) {
+      url += "&lendingType=" + lendingTypeId;
+    }
+    if (regionCode) {
+      url += "&region=" + regionCode;
+    }
     console.log(url);
     return this.httpClient.get<any>(url).pipe(map(data => data[1]));
 
