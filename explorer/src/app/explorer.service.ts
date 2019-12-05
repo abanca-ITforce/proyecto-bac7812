@@ -49,11 +49,6 @@ export class ExplorerService {
     return this.httpClient.get<any>(url).pipe(map(data => data[1]));
   }
 
-  getIncomeLevelId$(incomeLevelId) {
-    const url = this.country + "?incomeLevel=" + incomeLevelId + "&" + this.format;
-    return this.httpClient.get<any>(url).pipe(map(data => data[1]));
-  }
-
   getLendingTypes$() {
     const url = this.lendingType + "?" + this.format;
     return this.httpClient.get<any>(url).pipe(map(data => data[1]));
