@@ -31,7 +31,7 @@ export class ExplorerService {
 
   getRegionCode$(regionCode) {
     const url = this.region + "/" + regionCode + "?" + this.format;
-    return this.httpClient.get<any[]>(url).pipe(map(data => data[1]));
+    return this.httpClient.get<any[]>(url).pipe(map(data => data[1][0]));
   }
 
   getCountriesRegionCode$(regionCode) {

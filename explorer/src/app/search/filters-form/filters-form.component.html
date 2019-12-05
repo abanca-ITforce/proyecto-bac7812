@@ -21,7 +21,7 @@
           <mat-radio-group formControlName="lendingType">
             <mat-radio-button *ngFor="let lendingType of lendingTypes" [value]="lendingType.id">{{ lendingType.value }}</mat-radio-button>
           </mat-radio-group>
-          <!--<mat-error *ngIf="filtersForm.controls['typeDebt'].hasError('required')">
+          <!--<mat-error *ngIf="filtersForm.controls['lendingType'].hasError('required')">
             Type of debt regions is <strong>required</strong>
           </mat-error>-->
         </div>
@@ -40,7 +40,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Search</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="filtersForm.invalid">Search</button>
     </mat-card-actions>
   </mat-card>
 </form>
