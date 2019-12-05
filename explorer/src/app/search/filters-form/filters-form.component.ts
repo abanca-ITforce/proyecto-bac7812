@@ -9,10 +9,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class FiltersFormComponent {
 
   @Input() incomeLevels;
+  @Input() lendingTypes;
+  @Input() regions;
 
   filtersForm = this.formBuilder.group({
     incomeLevel: [null, Validators.required],
-    typeDebt: [null, Validators.required],
+    lendingType: [null, Validators.required],
     geographicRegions: [null, Validators.required]
   });
 

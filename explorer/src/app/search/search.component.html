@@ -1,4 +1,4 @@
-<app-filters-form [incomeLevels]="incomeLevels$ | async" (post)="onPost($event)"></app-filters-form>
+<app-filters-form [incomeLevels]="incomeLevels$ | async" [lendingTypes]="lendingTypes$ | async" [regions]="regions$ | async"(post)="onPost($event)"></app-filters-form>
 <app-countries-list
   *ngIf="countries$ | async as countries"
   [countries]="countries"

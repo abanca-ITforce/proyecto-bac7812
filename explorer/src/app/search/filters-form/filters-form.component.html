@@ -18,8 +18,8 @@
               </mat-form-field>
             </div>
         <div class="col">
-          <mat-radio-group formControlName="typeDebt">
-            <mat-radio-button value="free">Free Shipping</mat-radio-button>
+          <mat-radio-group formControlName="lendingType">
+            <mat-radio-button *ngFor="let lendingType of lendingTypes" [value]="lendingType.id">{{ lendingType.value }}</mat-radio-button>
           </mat-radio-group>
           <!--<mat-error *ngIf="filtersForm.controls['typeDebt'].hasError('required')">
             Type of debt regions is <strong>required</strong>
@@ -28,8 +28,8 @@
         <div class="col">
             <mat-form-field class="full-width">
               <mat-select placeholder="Geographic regions" formControlName="geographicRegions">
-                <mat-option>
-
+                <mat-option *ngFor="let region of regions" [value]="region.code">
+                  {{ region.name }}
                 </mat-option>
               </mat-select>
               <!--<mat-error *ngIf="filtersForm.controls['geographicRegions'].hasError('required')">

@@ -9,6 +9,7 @@ export class ExplorerService {
   private country = "https://api.worldbank.org/v2/country";
   private region = "https://api.worldbank.org/v2/region";
   private incomeLevel = "https://api.worldbank.org/v2/incomeLevel";
+  private lendingType = "https://api.worldbank.org/v2/lendingType";
   private format = "per_page=1000&format=json";
 
   constructor(private httpClient: HttpClient) {}
@@ -53,4 +54,16 @@ export class ExplorerService {
     return this.httpClient.get<any>(url).pipe(map(data => data[1]));
   }
 
+  getLendingTypes$() {
+    const url = this.lendingType + "?" + this.format;
+    return this.httpClient.get<any>(url).pipe(map(data => data[1]));
+  }
+
+  getSearch$(incomeLevelId, lendingTypeId, regionCode) {
+    const url = this.country + "?incomeLevel=" + incomeLevelId +
+    "&lendingType=" + lendingTypeId + "&region=" + regionCode + "&" + this.format;
+    console.log(url);
+    return this.httpClient.get<any>(url).pipe(map(data => data[1]));
+
+  }
 }

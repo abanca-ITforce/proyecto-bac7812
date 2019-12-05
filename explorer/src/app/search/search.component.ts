@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 export class SearchComponent implements OnInit {
 
   incomeLevels$ = this.explorerService.getIncomeLevels$();
+  lendingTypes$ = this.explorerService.getLendingTypes$();
+  regions$ = this.explorerService.getRegions$();
   countries$: Observable<any[]>;
 
   constructor(private explorerService: ExplorerService) { }
@@ -18,8 +20,7 @@ export class SearchComponent implements OnInit {
   }
 
   onPost(filters) {
-    this.countries$ = this.explorerService.getIncomeLevelId$(filters.incomeLevel);
-    console.log(filters.incomeLevel);
+    this.countries$ = this.explorerService.getSearch$(filters.incomeLevel, filters.lendingType, filters.geographicRegions);
   }
 
 }
