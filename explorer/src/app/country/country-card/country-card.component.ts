@@ -8,6 +8,7 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class CountryCardComponent implements OnInit {
   @Input() country: any;
+  @Input() indicator: any;
 
   constructor() {}
 

@@ -40,7 +40,7 @@ export class ExplorerService {
   }
 
   getCountryIndicator$(countryId){
-    const url = this.country + "/" + countryId + "indicators/SP.POP.TOTL;NY.GDP.MKTP.CD/?source=2&date=2018&" + this.format;
+    const url = this.country + "/" + countryId + "/indicators/SP.POP.TOTL;NY.GDP.MKTP.CD/?source=2&date=2018&" + this.format;
     return this.httpClient.get<any[]>(url).pipe(map(data => data[1]));
   }
 
